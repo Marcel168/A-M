@@ -1,0 +1,48 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field{
+    width: 45%;
+    margin-left: 10px;
+}
+
+::placeholder {
+    color: cadetblue;
+}
+
+.img-preview-container {
+    background-color: #f7f7f7;
+    position: relative;
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+}
+
+.img-preview {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+}
+
+.img-loading-overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.exit {
+    background-color: red;
+    color: white;
+}
+
+.add {
+    background-color: blue;
+    color: white;
+    margin-left: 160px;
+    top: 35px;
+}

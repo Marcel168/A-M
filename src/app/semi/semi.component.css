@@ -1,0 +1,52 @@
+mat-card{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+
+
+tbody{
+    background-color: rgb(102, 173, 255);
+}
+
+thead{
+    background-color: rgb(9, 128, 197);
+}
+
+td{
+    word-wrap:break-word;
+    width: 15%;
+    text-align: center;
+    align-self: center;
+}
+
+.a{
+    cursor: pointer;
+    color: red;
+    text-decoration: underline;
+}
+
+.img-preview-container {
+    background-color: #f7f7f7;
+    position: relative;
+    margin: auto;
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+}
+
+.img-preview {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+}
+
+.img-loading-overlay {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}

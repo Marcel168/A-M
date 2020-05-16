@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span>Nuovo seme</span>
+    <div style="flex: 1 1 auto;"></div>
+    <button mat-button mat-dialog-close mat-dialog-close="false" class="exit"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<mat-card>
+    <mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Nome del seme</mat-label>
+            <textarea [(ngModel)]="seme.nome" name="api" matInput rows="1" disabled='true' placeholder="Ex. Girasole" ></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Semina il</mat-label>
+            <input #il matInput  [matDatepicker]="myDatePicker" (focus)="showPicker()" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatePicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Appezzamento</mat-label>
+            <mat-select #terra>
+                <mat-option *ngFor="let number of appezzamenti; index as i;" [value]="appezzamenti[i]">{{appezzamenti[i]}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button class="add" mat-raised-button (click)="save(il.value, terra.value);" mat-dialog-close>add</button>
+    </mat-dialog-content>
+</mat-card>

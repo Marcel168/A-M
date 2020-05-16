@@ -1,0 +1,15 @@
+mat-form-field{
+    width: 45%;
+    margin-left: 10px;
+}
+
+.exit {
+    background-color: red;
+    color: white;
+}
+
+.add {
+    background-color: blue;
+    color: white;
+    margin-left: 40%;
+}

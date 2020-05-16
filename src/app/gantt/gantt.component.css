@@ -1,0 +1,6 @@
+ng-gantt>div {height: 100%;}
+mat-card{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}

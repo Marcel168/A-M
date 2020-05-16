@@ -1,0 +1,33 @@
+<!--
+<h3>Live Reload</h3>
+<button (click)="changeData()">New Data</button>--><br><br><br>
+<mat-card>
+  <div>
+    Mostra le semine a partire dalla data:
+    <mat-form-field>
+      <mat-label>Data di inizio semine</mat-label>
+      <input #dal matInput [matDatepicker]="myDatePicker" (focus)="showPicker()" [min]="minDate" [max]="maxDate">
+      <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>&nbsp;&nbsp;
+    Fino alla data:
+    <mat-form-field>
+      <mat-label>Data di fine semine</mat-label>
+      <input #al matInput [matDatepicker]="myDatePicker1" (focus)="showPicker1()" [min]="minDate" [max]="maxDate">
+      <mat-datepicker-toggle matSuffix [for]="myDatePicker1"></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker1></mat-datepicker>
+    </mat-form-field>&nbsp;&nbsp;
+    <button mat-raised-button style="background-color:blue;color:white;"(click)="createGantt(dal.value, al.value);">Conferma</button>
+    <p>Vedi tutte le semine&nbsp;&nbsp;<button style="background-color:blue;color:white;" (click)="showAll();" mat-raised-button>Conferma</button></p>
+    <br><p style="color:red;">*Nota bene: Perchè la semina sia visibile deve sia iniziare che finire nell'intervallo di date inserito</p>
+    <p style="color:blue;">*Suggerimento: Passando con il cursore sopra la barra di una semina specifica o dell'appezzamento darà più informazioni sulla semina/appezzamento</p><br>
+  </div>
+  <div>
+    <ng-gantt [options]="editorOptions" [data]="data" #editor></ng-gantt>
+  </div>
+</mat-card>
+
+<!-- <h3>Multiple jsgantt</h3>
+<div style="height:600px;">
+  <ng-gantt [options]="editorOptions" [data]="data2" #editorTwo></ng-gantt>
+</div> -->

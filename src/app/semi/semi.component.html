@@ -1,0 +1,38 @@
+<h2>Semi</h2>
+<mat-card *ngIf="semi!=null">
+  <button mat-raised-button style="background-color:blue;color:white;" (click)="add()">Aggiungi</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Immagine</th>
+        <th>Nome</th>
+        <th>Descrizione</th>
+        <th>Intervallo semina</th>
+        <th>Tempo crescità</th>
+        <th>Azione</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let seme of semi">
+      <tr>
+        <td>
+          <div class="img-preview-container">
+            <div class="img-preview" [ngStyle]="{'background-image': 'url('+ seme.img + ')'}">
+              <div class="img-loading-overlay">
+                <div class="img-spinning-circle"></div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>{{seme.nome}}</td>
+        <td>{{seme.descrizione}}</td>
+        <td>{{seme.dataInizio}}->{{seme.dataFine}}</td>
+        <td>{{seme.tempoCrescita}}</td>
+        <td><button mat-raised-button (click)="modifica(seme.nome)">Modifica</button>
+          <button mat-raised-button (click)="semina(seme.nome)">Pianifica</button>
+          <a class="a" (click)="delete(seme)">
+            <mat-icon>clear</mat-icon>
+          </a></td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
