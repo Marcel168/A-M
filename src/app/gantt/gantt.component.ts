@@ -285,7 +285,7 @@ export class GanttComponent implements OnInit {
             'pName': 'Semina di: ' + semine[pID - i].seme,
             'pStart': date1,
             'pEnd': date2,
-            'pClass': 'gtaskpurple',
+            'pClass': 'gtaskgreen',
             'pLink': '',
             'pMile': 0,
             'pGroup': 0,

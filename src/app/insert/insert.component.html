@@ -1,13 +1,15 @@
 <mat-toolbar color="primary">
     <span>Nuovo seme</span>
     <div style="flex: 1 1 auto;"></div>
-    <button mat-button mat-dialog-close mat-dialog-close="false" class="exit"><mat-icon>clear</mat-icon></button>
+    <button mat-button mat-dialog-close mat-dialog-close="false" class="exit">
+        <mat-icon>clear</mat-icon>
+    </button>
 </mat-toolbar>
-<mat-card>
+<mat-card style="height: 380px;">
     <mat-dialog-content>
         <mat-form-field>
-            <mat-label>Nome del seme</mat-label>
-            <textarea #seme name="api" matInput rows="1" placeholder="Ex. Girasole" ></textarea>
+            <mat-label>Nome del seme*</mat-label>
+            <textarea #seme name="api" matInput rows="1" placeholder="Ex. Girasole"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -16,32 +18,36 @@
         </mat-form-field>
         <br>
         <mat-form-field>
-            <mat-label>Semina dal</mat-label>
-            <input #dal matInput  [matDatepicker]="myDatePicker1" (focus)="showPicker1()" [min]="minDate" [max]="maxDate">
+            <mat-label>Semina dal*</mat-label>
+            <input #dal matInput [matDatepicker]="myDatePicker1" (focus)="showPicker1()" [min]="minDate"
+                [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="myDatePicker1"></mat-datepicker-toggle>
             <mat-datepicker #myDatePicker1></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>al</mat-label>
-            <input #al matInput  [matDatepicker]="myDatePicker" (focus)="showPicker()" [min]="minDate" [max]="maxDate">
+            <mat-label>al*</mat-label>
+            <input #al matInput [matDatepicker]="myDatePicker" (focus)="showPicker()" [min]="minDate" [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #myDatePicker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Crescità (gg)</mat-label>
+            <mat-label>Crescità(gg)*</mat-label>
             <input #tempo matInput type="number" placeholder="Ex. 30gg">
         </mat-form-field>
         <br>
-        <mat-label style="margin-left: 10px;">Scegliere l'immagine del seme </mat-label>
-        <input #file type="file" accept="image/*" (change)="processFile(file)" style="margin-left: 10px;">
+        <input #file type="file" name="file" id="file" accept="image/*" (change)="processFile(file)" class="inputfile">
+        <label for="file"><p style="margin-top: 10px"><mat-icon>cloud_upload</mat-icon> Scegli immagine*</p></label>
         <br><br>
         <div *ngIf="selectedFile" class="img-preview-container">
             <div class="img-preview" [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}"></div>
             <div class="img-loading-overlay">
                 <div class="img-spinning-circle"></div>
-                <button mat-raised-button mat-dialog-close mat-dialog-close="true" class="add" (click)="add(seme.value, desc.value, dal.value, al.value, tempo.value, file);">add</button>
             </div>
-        </div></mat-dialog-content>
+        </div>
+        <button mat-raised-button mat-dialog-close mat-dialog-close="true" class="add"
+            (click)="add(seme.value, desc.value, dal.value, al.value, tempo.value, file);">Inserisci</button>
+        <p style="position: absolute; top: 390px; color: red;left: 10%;">I campi contrasegnati da un * sono obbligatori</p>
+    </mat-dialog-content>
 </mat-card>

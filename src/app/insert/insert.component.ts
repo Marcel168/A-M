@@ -43,10 +43,10 @@ export class PostComponent implements OnInit {
   add(nome: string, descrizione: string, dataInizio: string, dataFine: string, tempoCrescita: number, img: any): void {
     nome = nome.trim();
     descrizione = descrizione.trim();
-    if (!nome || !descrizione || !dataInizio || !dataFine || !tempoCrescita || !img) { return; }
+    if (!nome || !dataInizio || !dataFine || !tempoCrescita || !img) { alert("Operazione fallita: Dati mancanti"); return;}
     img = this.selectedFile.src;
     this.semeService.addSeme({ nome, descrizione, dataInizio, dataFine, tempoCrescita, img } as Seme)
-      .subscribe(error => { alert('Inserimento fallito: seme preesistente');});
+      .subscribe();
   }
 
   processFile(img: any) {

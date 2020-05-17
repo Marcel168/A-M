@@ -1,6 +1,7 @@
 <h2>Semi</h2>
 <mat-card *ngIf="semi!=null">
-  <button mat-raised-button style="background-color:blue;color:white;" (click)="add()">Aggiungi</button>
+  <button mat-raised-button style="background-color:blue;color:white;margin-left: 40%;" (click)="add()">Nuovo<mat-icon>add</mat-icon></button>
+  <br><br>
   <table>
     <thead>
       <tr>
@@ -29,9 +30,7 @@
         <td>{{seme.tempoCrescita}}</td>
         <td><button mat-raised-button (click)="modifica(seme.nome)">Modifica</button>
           <button mat-raised-button (click)="semina(seme.nome)">Pianifica</button>
-          <a class="a" (click)="delete(seme)">
-            <mat-icon>clear</mat-icon>
-          </a></td>
+          <a mat-raised-button class="a" (click)="delete(seme)">Elimina</a></td>
       </tr>
     </tbody>
   </table>

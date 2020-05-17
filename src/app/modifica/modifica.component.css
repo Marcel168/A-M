@@ -39,6 +39,42 @@ mat-form-field{
 .update {
     background-color: blue;
     color: white;
-    margin-left: 140px;
+    margin-left: 210px;
     top: 35px;
+}
+
+.inputfile {
+	width: 100px;
+	height: 100px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    border-top-style: 20px;
+    color: white;
+    background-color: red;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    color: whitesmoke;
+    background-color: rgb(235, 2, 2);
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
 }

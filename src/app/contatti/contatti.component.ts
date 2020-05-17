@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contatti.component.css']
 })
 export class ContattiComponent implements OnInit {
+  image: string = "assets/telegram.png";
+  image2: string = "assets/gmail.png";
 
   constructor() { }
 

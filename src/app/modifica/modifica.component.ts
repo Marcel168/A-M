@@ -70,9 +70,13 @@ export class ModificaComponent implements OnInit {
   update(dataInizio: string, dataFine: string): void {
     this.seme.dataInizio = dataInizio;
     this.seme.dataFine = dataFine;
+    if(!dataInizio || !dataFine || !this.seme.nome || !this.seme.img || !this.seme.tempoCrescita){
+      alert("Operazione fallita: Dati mancanti");
+      return;
+    }
     this.seme.nome = this.seme.nome+'§'+this.nome;
     this.semeService.updateSeme(this.seme)
-      .subscribe(res => {if(res!='ok')alert('Aggiornamento fallito -> nome non disponibile');});
+      .subscribe();
   }
 
   processFile(img: any){

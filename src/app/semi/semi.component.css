@@ -1,10 +1,34 @@
+h2{
+    margin-left: 43.5%;
+    font-family: sans-serif;
+}
+
 mat-card{
     width: 80%;
     margin: auto;
     background-color: white;
 }
 
+button:hover{
+    background: blue;
+    color: whitesmoke;
+}
 
+button{
+    background-color: rgb(76, 114, 240);
+    color: white;
+}
+
+table, td, th {
+    border: 1px solid rgb(35, 116, 236);
+}
+  
+table { 
+    color: whitesmoke;
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
 tbody{
     background-color: rgb(102, 173, 255);
@@ -22,13 +46,20 @@ td{
 }
 
 .a{
+    width: 98%;
+    margin-top: 2px;
     cursor: pointer;
-    color: red;
-    text-decoration: underline;
+    color: white;
+    background-color: red;
+}
+
+.a:hover{
+    color: whitesmoke;
+    background-color: rgb(235, 2, 2);
 }
 
 .img-preview-container {
-    background-color: #f7f7f7;
+    background-color: rgb(102, 173, 255);
     position: relative;
     margin: auto;
     background: center center no-repeat;
@@ -44,9 +75,11 @@ td{
     width: 116px;
 }
 
+
 .img-loading-overlay {
     bottom: 0;
     left: 0;
+    position: absolute;
     right: 0;
     top: 0;
 }

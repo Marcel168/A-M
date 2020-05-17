@@ -62,7 +62,10 @@ export class SeminaComponent implements OnInit {
     var fine = new Date(inizio);
     var seme = this.seme.nome;
     fine.setDate(fine.getDate() + Number(this.seme.tempoCrescita));
-    if (!inizio || !appezzamento) { return; }
+    if (!inizio || !appezzamento) {
+      alert("Operazione fallita: Dati mancanti"); 
+      return; 
+    }
     this.semeService.addSemina({ seme, inizio, fine, appezzamento } as Semina)
       .subscribe(res => alert('Terreno occupato, cambiare data o terreno'));
   }
