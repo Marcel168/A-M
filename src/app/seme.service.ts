@@ -8,14 +8,14 @@ import { Semina } from './Semina';
 @Injectable({ providedIn: 'root' })
 
 export class SemeService {
-  private semiUrl = 'http://localhost:3000/api/semi';  // URL to web api
-  private seminaUrl = 'http://localhost:3000/api/semina';  // URL to web api
+  private semiUrl = 'http://localhost:3000/api/semi';
+  private seminaUrl = 'http://localhost:3000/api/semina';
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       console.error(error);
-      alert(error.error);
+      alert('Errore: ' + error.error);
 
       return of(result as T);
     };
@@ -27,7 +27,6 @@ export class SemeService {
 
   constructor(private http: HttpClient) { }
 
-  
   getSemi(): Observable<Seme[]> {
     return this.http.get<Seme[]>(this.semiUrl)
       .pipe(
@@ -48,41 +47,33 @@ export class SemeService {
         catchError(this.handleError<Semina[]>(`getSemine date=${date}`, []))
       );
   }
-  
+
   getSemeNo404<Data>(nome: string): Observable<Seme> {
     const url = `${this.semiUrl}/?nome=${nome}`;
     return this.http.get<Seme[]>(url)
       .pipe(
-        map(semi => semi[0]), // returns a {0|1} element array
-        
+        map(semi => semi[0]),
         catchError(this.handleError<Seme>(`getSeme nome=${nome}`))
       );
   }
 
-  
   getSeme(nome: string): Observable<Seme> {
     const url = `${this.semiUrl}/${nome}`;
     return this.http.get<Seme>(url).pipe(
-      
       catchError(this.handleError<Seme>(`getSeme nome=${nome}`))
     );
   }
 
-  
+
   searchSemi(term: string): Observable<Seme[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
       return of([]);
     }
     return this.http.get<Seme[]>(`${this.semiUrl}/?nome=${term}`).pipe(
-         
       catchError(this.handleError<Seme[]>('searchSemi', []))
     );
   }
 
-  //////// Save methods //////////
-
-  
   addSeme(seme: Seme): Observable<Seme> {
     return this.http.post<Seme>(this.semiUrl, seme, this.httpOptions).pipe(
       catchError(this.handleError<Seme>('addSeme'))
@@ -94,22 +85,18 @@ export class SemeService {
       catchError(this.handleError<Semina>('addSemina'))
     );
   }
- 
+
   deleteSeme(seme: Seme | string): Observable<Seme> {
     const nome = typeof seme === 'string' ? seme : seme.nome;
     const url = `${this.semiUrl}/${nome}`;
-
     return this.http.delete<Seme>(url, this.httpOptions).pipe(
-      
       catchError(this.handleError<Seme>('deleteSeme'))
     );
   }
 
-  
   updateSeme(seme: Seme): Observable<any> {
     return this.http.put(this.semiUrl, seme, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateSeme'))
     );
   }
-
 }

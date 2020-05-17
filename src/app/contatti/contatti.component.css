@@ -3,3 +3,23 @@ mat-card{
     margin: auto;
     background-color: white;
 }
+
+h2{
+    margin-left: 42%;
+}
+
+.telegram{
+    margin-left: 70px;
+}
+
+.gmail{
+    position: absolute; 
+    top: 10px; 
+    margin-left: 850px;
+}
+
+.text{
+    position: absolute; 
+    top: 25px; 
+    margin-left: 400px;
+}

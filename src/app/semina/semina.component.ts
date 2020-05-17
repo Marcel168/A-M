@@ -10,6 +10,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './semina.component.html',
   styleUrls: ['./semina.component.css']
 })
+
 export class SeminaComponent implements OnInit {
   appezzamenti: number[] = [1, 2, 3, 4, 5, 6];
   minDate = new Date();
@@ -42,31 +43,31 @@ export class SeminaComponent implements OnInit {
     if (dataFine >= new Date()) {
       this.minDate = dataInizio;
       this.maxDate = dataFine;
-      if(this.minDate < new Date())
-      this.minDate = new Date();
-    } else{
+      if (this.minDate < new Date())
+        this.minDate = new Date();
+    } else {
       this.minDate = dataInizio;
       this.maxDate = dataFine;
       this.minDate.setDate(this.minDate.getDate() + 365);
       this.maxDate.setDate(this.maxDate.getDate() + 365);
     }
-}
+  }
 
   getSeme(): void {
     this.semeService.getSeme(this.nome)
       .subscribe(seme => this.init(seme));
   }
 
-  save(inizio: any, appezzamento: number) {
+  save(inizio: any, appezzamento: number, res: string, note: string) {
     inizio = new Date(inizio);
     var fine = new Date(inizio);
     var seme = this.seme.nome;
     fine.setDate(fine.getDate() + Number(this.seme.tempoCrescita));
     if (!inizio || !appezzamento) {
-      alert("Operazione fallita: Dati mancanti"); 
-      return; 
+      alert("Operazione fallita: Dati mancanti");
+      return;
     }
-    this.semeService.addSemina({ seme, inizio, fine, appezzamento } as Semina)
+    this.semeService.addSemina({ seme, inizio, fine, appezzamento, res, note } as Semina)
       .subscribe(res => alert('Terreno occupato, cambiare data o terreno'));
   }
 }

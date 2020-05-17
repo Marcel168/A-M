@@ -1,30 +1,35 @@
 <mat-toolbar color="primary">
     <span>Modifica seme</span>
-    <div style="flex: 1 1 auto;"></div>
-    <button mat-button mat-dialog-close mat-dialog-close="false" class="exit"><mat-icon>clear</mat-icon></button>
+    <div class="spacer"></div>
+    <button mat-button mat-dialog-close mat-dialog-close="false" class="exit">
+        <mat-icon>clear</mat-icon>
+    </button>
 </mat-toolbar>
-<mat-card style="height: 380px;">
+<mat-card>
     <mat-dialog-content>
         <mat-form-field>
             <mat-label>Nome del seme*</mat-label>
-            <textarea [(ngModel)]="seme.nome" name="api" matInput rows="1" placeholder="Ex. Girasole" ></textarea>
+            <textarea [(ngModel)]="seme.nome" name="api" matInput rows="1" placeholder="Ex. Girasole"></textarea>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Descrizione del seme</mat-label>
-            <textarea [(ngModel)]="seme.descrizione" name="api" matInput  placeholder="EX. Il girasole è una pianta annuale" rows="2"></textarea>
+            <textarea [(ngModel)]="seme.descrizione" name="api" matInput
+                placeholder="EX. Il girasole è una pianta annuale" rows="2"></textarea>
         </mat-form-field>
 
         <mat-form-field class="md-datepicker-input">
             <mat-label>Semina dal*</mat-label>
-            <input #dal [(ngModel)]="dataInizio" [value]="seme.dataInizio" matInput  [matDatepicker]="myDatePicker1" (focus)="showPicker1()" [min]="minDate" [max]="maxDate">
+            <input #dal [(ngModel)]="dataInizio" [value]="seme.dataInizio" matInput [matDatepicker]="myDatePicker1"
+                (focus)="showPicker1()" [min]="minDate" [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="myDatePicker1"></mat-datepicker-toggle>
             <mat-datepicker #myDatePicker1></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>al*</mat-label>
-            <input #al [(ngModel)]="dataFine" [value]="seme.dataFine" matInput  [matDatepicker]="myDatePicker" (focus)="showPicker()" [min]="minDate" [max]="maxDate">
+            <input #al [(ngModel)]="dataFine" [value]="seme.dataFine" matInput [matDatepicker]="myDatePicker"
+                (focus)="showPicker()" [min]="minDate" [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #myDatePicker></mat-datepicker>
         </mat-form-field>
@@ -35,17 +40,20 @@
         </mat-form-field>
         <br>
         <input #file name="file" id="file" type="file" accept="image/*" (change)="processFile(file)" class="inputfile">
-        <label for="file"><p style="margin-top: 10px"><mat-icon>cloud_upload</mat-icon> Scegli immagine*</p></label>
+        <label for="file">
+            <p class="upload">
+                <mat-icon>cloud_upload</mat-icon> Scegli immagine*
+            </p>
+        </label>
         <br><br>
         <div *ngIf="seme.img!=null" class="img-preview-container">
             <div class="img-preview" [ngStyle]="{'background-image': 'url('+ seme.img + ')'}"></div>
             <div class="img-loading-overlay">
                 <div class="img-spinning-circle"></div>
-                
-        <button class="update" mat-raised-button mat-dialog-close mat-dialog-close="true" (click)="update(dal.value, al.value);">aggiorna seme</button>
-    
+                <button class="update" mat-raised-button mat-dialog-close mat-dialog-close="true"
+                    (click)="update(dal.value, al.value);">aggiorna seme</button>
             </div>
         </div>
-        <p style="position: absolute; top: 390px; color: red;left: 10%;">I campi contrasegnati da un * sono obbligatori</p>
+        <p class="caution">I campi contrasegnati da un * sono obbligatori</p>
     </mat-dialog-content>
 </mat-card>

@@ -3,6 +3,10 @@ mat-form-field{
     margin-left: 10px;
 }
 
+mat-card{
+    height: 380px;
+}
+
 ::placeholder {
     color: cadetblue;
 }
@@ -77,4 +81,19 @@ mat-form-field{
 .inputfile:focus + label {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.upload{
+    margin-top: 10px;
+}
+
+.caution{
+    position: absolute; 
+    top: 390px; 
+    color: red;
+    left: 10%;
 }

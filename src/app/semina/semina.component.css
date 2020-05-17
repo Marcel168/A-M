@@ -13,3 +13,14 @@ mat-form-field{
     color: white;
     margin-left: 40%;
 }
+
+div{
+    flex: 1 1 auto;
+}
+
+p{
+    position: absolute; 
+    top: 250px; 
+    color: red;
+    left: 10%;
+}

@@ -83,3 +83,17 @@ td{
     right: 0;
     top: 0;
 }
+
+.suggest{
+    color: blue;
+}
+
+.caution{
+    color:red;
+}
+
+.new{
+    background-color:blue;
+    color:white;
+    margin-left: 40%;
+}

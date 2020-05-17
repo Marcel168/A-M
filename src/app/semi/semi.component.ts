@@ -8,7 +8,7 @@ import { SeminaComponent } from '../semina/semina.component';
 import { ModificaComponent } from '../modifica/modifica.component';
 
 class ImageSnippet {
-  constructor(public src: string, public file: File) {}
+  constructor(public src: string, public file: File) { }
 }
 
 @Component({
@@ -16,19 +16,20 @@ class ImageSnippet {
   templateUrl: './semi.component.html',
   styleUrls: ['./semi.component.css']
 })
+
 export class SemiComponent implements OnInit {
   semi: Seme[];
   selectedFile: ImageSnippet;
 
-  constructor(private semeService: SemeService, public dialog:  MatDialog, private location: Location) { }
+  constructor(private semeService: SemeService, public dialog: MatDialog, private location: Location) { }
 
   ngOnInit() {
-        this.getSemi(); 
+    this.getSemi();
   }
 
   getSemi(): void {
     this.semeService.getSemi()
-    .subscribe(semi => this.semi = semi);
+      .subscribe(semi => this.semi = semi);
   }
 
   delete(seme: Seme): void {
@@ -36,23 +37,23 @@ export class SemiComponent implements OnInit {
     this.semeService.deleteSeme(seme.nome).subscribe();
   }
 
-  processFile(img: any){
+  processFile(img: any) {
     const reader = new FileReader();
     reader.readAsDataURL(img);
   }
 
-  modifica(nome){
+  modifica(nome) {
     let risp = this.dialog.open(ModificaComponent, { width: '30%', data: { nome: nome } });
-    risp.afterClosed().subscribe(res => {if(res=="true")window.location.reload();});
+    risp.afterClosed().subscribe(res => { if (res == "true") window.location.reload(); });
   }
 
-  semina(nome){
+  semina(nome) {
     this.dialog.open(SeminaComponent, { width: '30%', data: { nome: nome } });
   }
 
-  add(){
+  add() {
     let risp = this.dialog.open(PostComponent, { width: '30%' });
-    risp.afterClosed().subscribe(res => {if(res=="true")window.location.reload();});
+    risp.afterClosed().subscribe(res => { if (res == "true") window.location.reload(); });
   }
 
 }

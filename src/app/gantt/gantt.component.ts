@@ -195,15 +195,15 @@ export class GanttComponent implements OnInit {
     this.maxDate = new Date(appoMax);
   }
 
-  createGantt(dataInizio: any, dataFine: any){
+  createGantt(dataInizio: any, dataFine: any) {
     if (!dataInizio || !dataFine) { alert('Operazione fallita: Dati mancanti'); return; }
     var date: string[] = [dataInizio, dataFine];
     this.semeService.getSemineCon(date).subscribe(semine => this.initialData(semine));
   }
 
-  showAll(){
+  showAll() {
     if (!this.minDate || !this.maxDate) { alert('Operazione fallita: Semine non presenti'); return; }
-    var date: string[] = [this.minDate+'', this.maxDate+''];
+    var date: string[] = [this.minDate + '', this.maxDate + ''];
     this.semeService.getSemineCon(date).subscribe(semine => this.initialData(semine));
   }
 
@@ -220,7 +220,7 @@ export class GanttComponent implements OnInit {
         pComp = i;
       else
         pComp = i;
-        semine[pID - i + 1].appezzamento
+      semine[pID - i + 1].appezzamento
       if (!entered) {
         appo[pID] = {
           'pID': pID + 1,
@@ -287,13 +287,14 @@ export class GanttComponent implements OnInit {
             'pEnd': date2,
             'pClass': 'gtaskgreen',
             'pLink': '',
+            'pRes': semine[pID - i].res,
             'pMile': 0,
             'pGroup': 0,
             'pParent': parent[(semine[pID - i].appezzamento - 1)] + 1,
             'pOpen': 1,
             'pDepend': '',
             'pCaption': '',
-            'pNotes': ''
+            'pNotes': semine[pID - i].note
           }
           if (pID < maxId) {
             pID++;
@@ -303,8 +304,6 @@ export class GanttComponent implements OnInit {
         }
       }
     }
-
-    console.log(appo);
     this.data = appo;
   }
 }

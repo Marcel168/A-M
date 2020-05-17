@@ -1,7 +1,12 @@
 <h2>Semi</h2>
 <mat-card *ngIf="semi!=null">
-  <button mat-raised-button style="background-color:blue;color:white;margin-left: 40%;" (click)="add()">Nuovo<mat-icon>add</mat-icon></button>
+  <button mat-raised-button class="new" (click)="add()">Nuovo<mat-icon>add</mat-icon></button>
   <br><br>
+  <p class="suggest">*Suggerimento: Se dopo aver effetuato la modifica i dati nella tabella non risultano aggiornati e
+    non è stato visualizzato alcun messaggio d'errore provare ad aggiornare la pagina
+  </p>
+  <p class="caution">*Attenzione: Il formato della data segue lo standard americano(mm/dd/aa)
+  </p>
   <table>
     <thead>
       <tr>

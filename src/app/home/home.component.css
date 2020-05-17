@@ -3,3 +3,17 @@ mat-card{
     margin: auto;
     background-color: white;
 }
+
+h2{
+    margin-left: 45%;
+}
+
+p{
+    position: absolute; 
+    top: 25px; 
+    margin-left: 500px;
+}
+
+b{
+    margin-left: 120px;
+}

@@ -1,14 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Seme }         from '../seme';
-import { SemeService }  from '../seme.service';
+import { Seme } from '../seme';
+import { SemeService } from '../seme.service';
 
 @Component({
   selector: 'app-elimina',
   templateUrl: './elimina.component.html',
   styleUrls: ['./elimina.component.css']
 })
+
 export class EliminaComponent implements OnInit {
   @Input() seme: Seme;
 
@@ -16,7 +17,7 @@ export class EliminaComponent implements OnInit {
     private route: ActivatedRoute,
     private semeService: SemeService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.deleteSeme();
@@ -30,7 +31,7 @@ export class EliminaComponent implements OnInit {
       .subscribe();
   }
 
-  sleep(milliseconds: number): void{
+  sleep(milliseconds: number): void {
     const date = Date.now();
     let currentDate = null;
     do {

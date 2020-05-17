@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contatti.component.html',
   styleUrls: ['./contatti.component.css']
 })
+
 export class ContattiComponent implements OnInit {
-  image: string = "assets/telegram.png";
-  image2: string = "assets/gmail.png";
+  telegram: string = "assets/telegram.png";
+  gmail: string = "assets/gmail.png";
 
   constructor() { }
 
